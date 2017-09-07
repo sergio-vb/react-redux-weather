@@ -1,6 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-export default class SearchBar extends React.Component{
+import { fetchWeather } from '../actions/index';
+
+class SearchBar extends React.Component{
 
     constructor(props){
         super(props);
@@ -9,6 +13,7 @@ export default class SearchBar extends React.Component{
         };
 
         this.onInputChange = this.onInputChange.bind(this);
+        this.onFormSubmit = this.onFormSubmit.bind(this);
         /* Bind event handlers for the render method in the constructor: (Airbnb React Style Guide)
         Why? A bind call in the render path creates a brand new function on every single render.
 
@@ -29,6 +34,10 @@ export default class SearchBar extends React.Component{
 
     onFormSubmit(event){
         event.preventDefault();
+        this.props.fetchWeather(this.state.searchTerm);
+        this.setState({
+            searchTerm: ''
+        });
     }
 
     render(){
@@ -48,3 +57,9 @@ export default class SearchBar extends React.Component{
         );
     }
 }
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({ fetchWeather }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(SearchBar);
