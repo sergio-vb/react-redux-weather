@@ -1,4 +1,20 @@
 /* ForecastsList */
-.cities{
-    margin-top: 2em;
+.input-group{
+    margin: 1.4em 0;
+}
+.row{
+    text-align: center;
+}
+.cities-header{
+    font-weight: bold;
+    border-top: 1px solid #ececec;
+    border-bottom: 1px solid #ececec;
+    padding: 0.8em 0;
+}
+.city-row {
+    padding: 1em 0;
+    border-bottom: 1px solid #ececec;
+}
+.city-row:hover {
+    background: #ececec;
 }

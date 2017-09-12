@@ -42,7 +42,7 @@ class SearchBar extends React.Component{
 
     render(){
         return (
-            <form onSubmit={this.onFormSubmit} className="input-group">
+            <form onSubmit={this.onFormSubmit} className="input-group input-group-sm">
                 <input 
                     className="form-control"
                     type="text" 
