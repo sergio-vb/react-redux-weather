@@ -18,3 +18,7 @@
 .city-row:hover {
     background: #ececec;
 }
+
+.city-map{
+    height: 11em;
+}

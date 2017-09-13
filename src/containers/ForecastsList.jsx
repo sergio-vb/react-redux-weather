@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Chart from '../components/Chart'
+import Chart from '../components/Chart';
+import GoogleMap from '../components/GoogleMap';
 
 
 class ForecastsList extends React.Component{
@@ -23,12 +24,11 @@ class ForecastsList extends React.Component{
 
         return (
             <div className="row city-row" key={forecast.city.id}>
-                <div className="col-sm-3">{forecast.city.name}</div>
-                {/* <div className="col-sm-3">{this.convertKelvinToCelcius(forecast.list[0].main.temp)} C</div>
-                <div className="col-sm-3">{Math.round(forecast.list[0].main.pressure)}</div>
-                <div className="col-sm-3">{forecast.list[0].main.humidity}</div>  */}
-
-
+                
+                <div className="col-sm-3">
+                    <GoogleMap lat={forecast.city.coord.lat} lon={forecast.city.coord.lon}></GoogleMap>
+                </div>
+                
                 <div className="col-sm-3">
                     <Chart data={temperatureList} color="red" units="C" transform={this.convertKelvinToCelcius}></Chart>
                 </div>
